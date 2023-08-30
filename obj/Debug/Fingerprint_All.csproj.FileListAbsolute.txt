@@ -1,0 +1,16 @@
+D:\Skills\.Net\Fingerprint_All\bin\Debug\Fingerprint_All.exe.config
+D:\Skills\.Net\Fingerprint_All\bin\Debug\Fingerprint_All.exe
+D:\Skills\.Net\Fingerprint_All\bin\Debug\Fingerprint_All.pdb
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.csproj.AssemblyReference.cache
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.Capture_Verification.resources
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.Form1.resources
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.Properties.Resources.resources
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.csproj.GenerateResource.cache
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.csproj.CoreCompileInputs.cache
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.exe
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.pdb
+D:\Skills\.Net\Fingerprint_All\bin\Debug\DPCtlUruNet.dll
+D:\Skills\.Net\Fingerprint_All\bin\Debug\DPUruNet.dll
+D:\Skills\.Net\Fingerprint_All\bin\Debug\DPCtlUruNet.xml
+D:\Skills\.Net\Fingerprint_All\bin\Debug\DPUruNet.xml
+D:\Skills\.Net\Fingerprint_All\obj\Debug\Fingerprint_All.csproj.CopyComplete
