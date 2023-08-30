@@ -23,6 +23,7 @@ namespace Fingerprint_All
         public Form1()
         {
             InitializeComponent();
+            
         }
         public Reader CurrentReader
         {
@@ -158,12 +159,16 @@ namespace Fingerprint_All
             {
                 _verification = new Capture_Verification();
                 _verification._sender = this;
+                _verification.FormClosed += VerificationFormClosed; // Subscribe to FormClosed event
             }
-            allReader();    
-            _verification.Show();             
-            _verification = null;
 
+            allReader();
+            this.Enabled = false;
+            _verification.Show();
         }
+
+
+
         public void CancelCaptureAndCloseReader(Reader.CaptureCallback OnCaptured)
         {
             if (_reader != null)
@@ -177,6 +182,18 @@ namespace Fingerprint_All
                 }
             }
         }
+        private void VerificationFormClosed(object sender, FormClosedEventArgs e)
+        {
+            _verification.FormClosed -= VerificationFormClosed; // Unsubscribe from FormClosed event
+            this.Enabled = true;
+            _verification = null;
+            if (_reader != null)
+            {
+                _reader.Dispose(); // Dispose of the reader when the verification form is closed
+                _reader = null;
+            }
+        }
+
 
 
         private void button3_Click(object sender, EventArgs e)

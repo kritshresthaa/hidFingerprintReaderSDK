@@ -15,6 +15,11 @@ namespace Fingerprint_All
         public Capture_Verification()
         {
             InitializeComponent();
+            refreshBtn.Visible = false;
+        }
+        private void Capture_Verification_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _sender.CancelCaptureAndCloseReader(this.OnCaptured);
         }
 
 
@@ -74,9 +79,11 @@ namespace Fingerprint_All
 
                     string scoreText = (compareResult.Score < (PROBABILITY_ONE / 100000)) ? "fingerprints matched" : "fingerprints did not match";
                     UpdateStatusLabel(label7, $"Comparison resulted in a dissimilarity score of {compareResult.Score} ({scoreText})");
+                    _sender.BeginInvoke(new Action(() => refreshBtn.Visible = true));
 
 
-                    
+
+
                     // Reset variables and labels for the next person
                     firstFinger = null;
                     secondFinger = null;
@@ -108,28 +115,26 @@ namespace Fingerprint_All
         }
         private void ResetProgram()
         {
-            // Reset variables and labels for a fresh start
+      
             firstFinger = null;
             secondFinger = null;
             count = 0;
 
-            // Update the UI labels
+     
             UpdateStatusLabel(label5, "");
             UpdateStatusLabel(label6, "");
             UpdateStatusLabel(label7, "");
-            // ... (any other labels you want to reset)
+            
         }
-        private void Verification_Closed(object sender, System.EventArgs e)
-        {
-           
-        }
+
+
 
 
         private void button1_Click(object sender, EventArgs e)
         {
             ResetProgram();
+            refreshBtn.Visible = false; 
 
-            // Open the reader before starting a new capture
             if (!_sender.OpenReader())
             {
                 MessageBox.Show("Failed to open reader.");
@@ -145,6 +150,12 @@ namespace Fingerprint_All
                 UpdateStatusLabel(label2, "Capture started successfully");
                 UpdateStatusLabel(label4, "Place your finger on the reader");
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close(); // Close the verification form
+            _sender.Show(); // Show the main form
         }
     }
 }
